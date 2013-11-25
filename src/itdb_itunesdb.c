@@ -1156,13 +1156,14 @@ static gboolean playcounts_plist_read (FImport *fimp, GValue *plist_data)
     GHashTable *pc_dict, *track_dict;
     GValue *to_parse;
     GArray *array;
+	GValue value;
     gint i;
     guint32 mac_time;
     guint64 *dbid;
-
+	
     g_return_val_if_fail (G_VALUE_HOLDS (plist_data, G_TYPE_HASH_TABLE), FALSE);
     pc_dict = g_value_get_boxed (plist_data);
-
+	
     to_parse = g_hash_table_lookup (pc_dict, "tracks");
     if (to_parse == NULL) {
         return FALSE;
@@ -1170,45 +1171,46 @@ static gboolean playcounts_plist_read (FImport *fimp, GValue *plist_data)
     if (!G_VALUE_HOLDS (to_parse, G_TYPE_ARRAY)) {
         return FALSE;
     }
-
+	
     playcounts = g_hash_table_new_full (g_int64_hash, g_int64_equal, g_free, g_free);
-
+	
     array = (GArray*)g_value_get_boxed (to_parse);
     for (i = 0; i < array->len; i++) {
-       if (!G_VALUE_HOLDS (g_array_index (array, GValue *, i), G_TYPE_HASH_TABLE)) {
-          continue;
-       }
-
-       track_dict = g_value_get_boxed (g_array_index (array, GValue *, i));
-       if (track_dict == NULL)
-           continue;
-
-       to_parse = g_hash_table_lookup (track_dict, "persistentID");
-       if (!to_parse)
-           continue;
-
-       dbid = g_new0 (guint64, 1);
-       if (!G_VALUE_HOLDS (to_parse, G_TYPE_INT64))
-           continue;
-       *dbid = g_value_get_int64 (to_parse);
-       playcount = g_new0 (struct playcount, 1);
-       g_hash_table_insert (playcounts, dbid, playcount);
-
-       playcount->bookmark_time = playcounts_plist_get_gint64 (track_dict, "bookmarkTimeInMS");
-       playcount->playcount = playcounts_plist_get_gint64 (track_dict, "playCount");
-       mac_time = playcounts_plist_get_gint64 (track_dict, "playMacOSDate");
-       playcount->time_played = device_time_mac_to_time_t (fimp->itdb->device, mac_time);
-       playcount->skipcount = playcounts_plist_get_gint64 (track_dict, "skipCount");
-       mac_time = playcounts_plist_get_gint64 (track_dict, "skipMacOSDate");
-       playcount->last_skipped = device_time_mac_to_time_t (fimp->itdb->device, mac_time);
-       playcount->rating = playcounts_plist_get_gint64 (track_dict, "userRating");
-       if (!playcount->rating)
-           playcount->rating = NO_PLAYCOUNT;
-
-       to_parse = g_hash_table_lookup (track_dict, "playedState");
-       if (to_parse && G_VALUE_HOLDS (to_parse, G_TYPE_BOOLEAN)) {
-           ; /* What do we do with this? */
-       }
+		value = g_array_index (array, GValue, i);
+		if (!G_VALUE_HOLDS (&value, G_TYPE_HASH_TABLE)) {
+			continue;
+		}
+		
+		track_dict = g_value_get_boxed (&value);
+		if (track_dict == NULL)
+			continue;
+		
+		to_parse = g_hash_table_lookup (track_dict, "persistentID");
+		if (!to_parse)
+			continue;
+		
+		dbid = g_new0 (guint64, 1);
+		if (!G_VALUE_HOLDS (to_parse, G_TYPE_INT64))
+			continue;
+		*dbid = g_value_get_int64 (to_parse);
+		playcount = g_new0 (struct playcount, 1);
+		g_hash_table_insert (playcounts, dbid, playcount);
+		
+		playcount->bookmark_time = playcounts_plist_get_gint64 (track_dict, "bookmarkTimeInMS");
+		playcount->playcount = playcounts_plist_get_gint64 (track_dict, "playCount");
+		mac_time = playcounts_plist_get_gint64 (track_dict, "playMacOSDate");
+		playcount->time_played = device_time_mac_to_time_t (fimp->itdb->device, mac_time);
+		playcount->skipcount = playcounts_plist_get_gint64 (track_dict, "skipCount");
+		mac_time = playcounts_plist_get_gint64 (track_dict, "skipMacOSDate");
+		playcount->last_skipped = device_time_mac_to_time_t (fimp->itdb->device, mac_time);
+		playcount->rating = playcounts_plist_get_gint64 (track_dict, "userRating");
+		if (!playcount->rating)
+			playcount->rating = NO_PLAYCOUNT;
+		
+		to_parse = g_hash_table_lookup (track_dict, "playedState");
+		if (to_parse && G_VALUE_HOLDS (to_parse, G_TYPE_BOOLEAN)) {
+			; /* What do we do with this? */
+		}
     }
     fimp->pcounts2 = playcounts;
     return TRUE;
