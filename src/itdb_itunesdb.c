@@ -1361,29 +1361,39 @@ void itdb_free (Itdb_iTunesDB *itdb)
 {
     if (itdb)
     {
-	g_list_foreach (itdb->playlists,
-			(GFunc)(itdb_playlist_free), NULL);
+		if (itdb->playlists)
+		{
+			g_list_foreach (itdb->playlists,
+							(GFunc)(itdb_playlist_free), NULL);
+			g_list_free (itdb->playlists);
+		}
 
-	if (itdb->priv) {
-	    if (itdb->priv->mhsd5_playlists)
-	    {
-	    g_list_foreach (itdb->priv->mhsd5_playlists,
-	            (GFunc)(itdb_playlist_free), NULL);
-	    }
+		if (itdb->priv) {
+			if (itdb->priv->mhsd5_playlists)
+			{
+				g_list_foreach (itdb->priv->mhsd5_playlists,
+								(GFunc)(itdb_playlist_free), NULL);
+			}
+			
+			if (itdb->priv->genius_cuid)
+				g_free(itdb->priv->genius_cuid);
+			
+			g_free (itdb->priv);
+		}
 
-	    g_free(itdb->priv->genius_cuid);
-	}
+		if (itdb->tracks)
+		{
+			g_list_foreach (itdb->tracks,
+							(GFunc)(itdb_track_free), NULL);
+			g_list_free (itdb->tracks);
+		}
 
-	g_list_free (itdb->playlists);
-	g_list_foreach (itdb->tracks,
-			(GFunc)(itdb_track_free), NULL);
-	g_list_free (itdb->tracks);
-	g_free (itdb->filename);
-	itdb_device_free (itdb->device);
-	if (itdb->userdata && itdb->userdata_destroy)
-	    (*itdb->userdata_destroy) (itdb->userdata);
-	g_free (itdb->priv);
-	g_free (itdb);
+		g_free (itdb->filename);
+		itdb_device_free (itdb->device);
+		if (itdb->userdata && itdb->userdata_destroy)
+			(*itdb->userdata_destroy) (itdb->userdata);
+		
+		g_free (itdb);
     }
 }
 
