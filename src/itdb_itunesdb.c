@@ -1302,7 +1302,6 @@ static gboolean playcounts_init (FImport *fimp)
 	  {
 	      result = itunesstats_read (fimp, cts);
 	      fcontents_free (cts);
-		  g_free(plist_data);
 	  }
 	  else
 	  {
@@ -1321,6 +1320,7 @@ static gboolean playcounts_init (FImport *fimp)
 	  {
 	      result = playcounts_plist_read (fimp, plist_data);
 	      g_value_unset (plist_data);
+	      g_free(plist_data);
 	  }
 	  else
 	  {
