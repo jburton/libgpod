@@ -144,12 +144,20 @@ db_parse_context_get_m_header_internal (DBParseContext *ctx, const char *id, off
 {
 	MHeader *h;
 	char *header_id;
+	
+	if (!ctx) {
+		return NULL;
+	}
 
 	if (db_parse_context_get_remaining_length (ctx) < 8) {
 		return NULL;
 	}
 
 	h = (MHeader *)ctx->cur_pos;
+	if (!h) {
+		return NULL;
+	}
+	
 	header_id = g_strndup ((char *)h->header_id, 4);
 	if (ctx->byte_order == G_BIG_ENDIAN) {
 		g_strreverse (header_id);
