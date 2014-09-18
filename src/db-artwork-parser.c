@@ -130,7 +130,7 @@ parse_mhod_string (DBParseContext *ctx, GError *error)
 	len = get_gint32 (mhod_string->string_len, ctx->byte_order);
 	switch (mhod_string->encoding) {
 	case 2:
-		result->mhod_string = get_utf16_string ((gunichar2 *)mhod_string->string,
+		result->mhod_string = get_utf16_string (mhod_string->string,
 							len, ctx->byte_order);
 		break;
 	case 0:
