@@ -504,7 +504,7 @@ write_mhii (Itdb_DB *db, void *data, iPodBuffer *buffer)
          * attached to the tracks to ITDB_THUMB_TYPE_IPOD thumbnails.
          */
         g_assert (artwork->thumbnail->data_type == ITDB_THUMB_TYPE_IPOD);
-	for (it=itdb_thumb_ipod_get_thumbs ((Itdb_Thumb_Ipod *)artwork->thumbnail); 
+	for (it=itdb_thumb_ipod_get_thumbs ((void *)artwork->thumbnail);
              it!=NULL; 
              it=it->next)
 	{
@@ -1048,7 +1048,7 @@ ipod_artwork_mark_new_doubles (Itdb_iTunesDB *itdb, guint max_id)
 	    {
 	    case ITDB_THUMB_TYPE_MEMORY:
 	    {
-		Itdb_Thumb_Memory *mthumb = (Itdb_Thumb_Memory *)thumb;
+		Itdb_Thumb_Memory *mthumb = (void *)thumb;
 		g_checksum_update (checksum,
 				   mthumb->image_data, mthumb->image_data_len);
 		hash = hash_memory;
@@ -1056,7 +1056,7 @@ ipod_artwork_mark_new_doubles (Itdb_iTunesDB *itdb, guint max_id)
 	    }
 	    case ITDB_THUMB_TYPE_PIXBUF:
 	    {
-		Itdb_Thumb_Pixbuf *pthumb = (Itdb_Thumb_Pixbuf *)thumb;
+		Itdb_Thumb_Pixbuf *pthumb = (void *)thumb;
 		g_return_val_if_fail (pthumb->pixbuf, max_id);
 		g_checksum_update (checksum,
 				   gdk_pixbuf_get_pixels (pthumb->pixbuf),
@@ -1066,7 +1066,7 @@ ipod_artwork_mark_new_doubles (Itdb_iTunesDB *itdb, guint max_id)
 	    }
 	    case ITDB_THUMB_TYPE_FILE:
 	    {
-		Itdb_Thumb_File *fthumb = (Itdb_Thumb_File *)thumb;
+		Itdb_Thumb_File *fthumb = (void *)thumb;
 		g_return_val_if_fail (fthumb->filename, max_id);
 		g_checksum_update (checksum,
 				   (guchar *)fthumb->filename,

@@ -269,7 +269,7 @@ parse_mhii (DBParseContext *ctx, GError *error)
 	artwork->artwork_size = get_gint32 (mhii->orig_img_size, ctx->byte_order);
 	artwork->dbid = get_gint64 (mhii->song_id, ctx->byte_order);
 
-        thumbs = (Itdb_Thumb_Ipod *)itdb_thumb_ipod_new ();
+        thumbs = (void *)itdb_thumb_ipod_new ();
         artwork->thumbnail = (Itdb_Thumb *)thumbs;
 	cur_offset = ctx->header_len;
 	mhod_ctx = db_parse_context_get_sub_context (ctx, cur_offset);
