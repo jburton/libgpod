@@ -237,6 +237,7 @@ parse_mhii (DBParseContext *ctx, GError *error)
 	Itdb_Artwork *artwork;
 	Itdb_PhotoDB *photodb;
 	guint64 mactime;
+	off_t len;
 	Itdb_Device *device = db_get_device (ctx->db);
         Itdb_Thumb_Ipod *thumbs;
             
@@ -245,7 +246,14 @@ parse_mhii (DBParseContext *ctx, GError *error)
 	{
 	    return -1;
 	}
-	db_parse_context_set_total_len (ctx, get_gint32 (mhii->total_len, ctx->byte_order));
+	
+	len = get_gint32 (mhii->total_len, ctx->byte_order);
+	if ((ctx->cur_pos - ctx->buffer) > len)
+	{
+		return -1;
+	}
+	
+	db_parse_context_set_total_len (ctx, len);
 	dump_mhii (mhii);
 
 	artwork = itdb_artwork_new ();
