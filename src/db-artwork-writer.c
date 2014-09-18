@@ -272,7 +272,7 @@ write_mhod_type_3 (gchar *string, iPodBuffer *buffer)
 {
 	ArtworkDB_MhodHeaderString *mhod;
 	unsigned int total_bytes;
-	glong len;
+	glong len = 0;
 	const gint g2l = sizeof (gunichar2);
 	gunichar2 *utf16, *strp;
 	int i, padding;
