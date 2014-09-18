@@ -274,7 +274,7 @@ write_mhod_type_3 (gchar *string, iPodBuffer *buffer)
 	unsigned int total_bytes;
 	glong len = 0;
 	const gint g2l = sizeof (gunichar2);
-	gunichar2 *utf16, *strp;
+	gunichar2 *utf16;
 	int i, padding;
 
 	g_assert (string != NULL);
@@ -323,9 +323,10 @@ write_mhod_type_3 (gchar *string, iPodBuffer *buffer)
 		    g_free (utf16);
 		    return  -1;
 	    }
-	    strp = (gunichar2 *)mhod->string;
+	    
 	    for (i = 0; i < len; i++) {
-		strp[i] = get_gint16 (utf16[i], buffer->byte_order);
+			gunichar2 u = get_gint16 (utf16[i], buffer->byte_order);
+			memcpy(mhod->string + (sizeof(u) * i), &u, sizeof(u));
 	    }
 	    g_free (utf16);
 	    memset (mhod->string + g2l*len, 0, padding);
