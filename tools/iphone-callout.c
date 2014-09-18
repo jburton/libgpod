@@ -3,6 +3,7 @@
 #include <errno.h>
 #include <string.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 extern char *read_sysinfo_extended_by_uuid (const char *uuid);
 extern gboolean iphone_write_sysinfo_extended (const char *uuid, const char *xml);
