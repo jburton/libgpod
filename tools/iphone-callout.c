@@ -1,4 +1,4 @@
-#define _BSD_SOURCE 1 /* for daemon() */
+#define _DEFAULT_SOURCE 1 /* for daemon() */
 #include <glib.h>
 #include <errno.h>
 #include <string.h>
