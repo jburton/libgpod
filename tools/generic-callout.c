@@ -605,7 +605,14 @@ static char *mount_ipod (const char *dev_path, const char *fstype)
                 return NULL;
         }
         g_assert (tmpname == filename);
+
+#if defined(__linux__)
         result = mount (dev_path, tmpname, fstype, 0, NULL);
+#else
+        result = -1;
+        #warning "Tools unsupported on this platform"
+#endif
+
         if (result != 0) {
                 g_debug("failed to mount device %s at %s: %s",
                         dev_path, tmpname, strerror(errno));
@@ -745,7 +752,14 @@ int itdb_callout_set_ipod_properties (ItdbBackend *backend, const char *dev,
          */
         mounted_ipod_set_properties (backend, ipod_mountpoint);
 
-        umount (ipod_mountpoint);
+#if defined(__APPLE__) || defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__)
+        unmount (ipod_mountpoint, 0);
+#elif defined(__linux__)
+        unmount (ipod_mountpoint);
+#else
+        #error "Unknown Platform"
+#endif
+
         g_rmdir (ipod_mountpoint);
         g_free (ipod_mountpoint);
 
