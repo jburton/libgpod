@@ -605,7 +605,7 @@ static char *mount_ipod (const char *dev_path, const char *fstype)
                 return NULL;
         }
         g_assert (tmpname == filename);
-        result = mount (dev_path, tmpname, 0, NULL);
+        result = mount (dev_path, tmpname, fstype, 0, NULL);
         if (result != 0) {
                 g_debug("failed to mount device %s at %s: %s",
                         dev_path, tmpname, strerror(errno));
@@ -745,7 +745,7 @@ int itdb_callout_set_ipod_properties (ItdbBackend *backend, const char *dev,
          */
         mounted_ipod_set_properties (backend, ipod_mountpoint);
 
-        unmount (ipod_mountpoint, 0);
+        umount (ipod_mountpoint);
         g_rmdir (ipod_mountpoint);
         g_free (ipod_mountpoint);
 

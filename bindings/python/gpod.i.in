@@ -298,9 +298,9 @@ PyObject* sw_get_photo(GList *list, gint index) {
 %include "gpod_doc.i"
 %include "@top_builddir@/config.h"
 
-# be nicer to decode these utf8 strings into Unicode objects in the C
-# layer. Here we are leaving it to the Python side, and just giving
-# them utf8 encoded Strings.
+// would be nicer to decode these utf8 strings into Unicode objects in the C
+// layer. Here we are leaving it to the Python side, and just giving them
+// utf8 encoded Strings.
 typedef char gchar;
 
 %typemap(in) time_t {
