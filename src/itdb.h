@@ -171,46 +171,52 @@ typedef enum {
 
 /**
  * Itdb_IpodModel:
- * @ITDB_IPOD_MODEL_INVALID:        Invalid model
- * @ITDB_IPOD_MODEL_UNKNOWN:        Unknown model
- * @ITDB_IPOD_MODEL_COLOR:          Color iPod
- * @ITDB_IPOD_MODEL_COLOR_U2:       Color iPod (U2)
- * @ITDB_IPOD_MODEL_REGULAR:        Regular iPod
- * @ITDB_IPOD_MODEL_REGULAR_U2:     Regular iPod (U2)
- * @ITDB_IPOD_MODEL_MINI:           iPod Mini
- * @ITDB_IPOD_MODEL_MINI_BLUE:      iPod Mini (Blue)
- * @ITDB_IPOD_MODEL_MINI_PINK:      iPod Mini (Pink)
- * @ITDB_IPOD_MODEL_MINI_GREEN:     iPod Mini (Green)
- * @ITDB_IPOD_MODEL_MINI_GOLD:      iPod Mini (Gold)
- * @ITDB_IPOD_MODEL_SHUFFLE:        iPod Shuffle
- * @ITDB_IPOD_MODEL_NANO_WHITE:     iPod Nano (White)
- * @ITDB_IPOD_MODEL_NANO_BLACK:     iPod Nano (Black)
- * @ITDB_IPOD_MODEL_VIDEO_WHITE:    iPod Video (White)
- * @ITDB_IPOD_MODEL_VIDEO_BLACK:    iPod Video (Black)
- * @ITDB_IPOD_MODEL_MOBILE_1:       Mobile iPod
- * @ITDB_IPOD_MODEL_VIDEO_U2:       iPod Video (U2)
- * @ITDB_IPOD_MODEL_NANO_SILVER:    iPod Nano (Silver)
- * @ITDB_IPOD_MODEL_NANO_BLUE:      iPod Nano (Blue)
- * @ITDB_IPOD_MODEL_NANO_GREEN:     iPod Nano (Green)
- * @ITDB_IPOD_MODEL_NANO_PINK:      iPod Nano (Pink)
- * @ITDB_IPOD_MODEL_NANO_RED:       iPod Nano (Red)
- * @ITDB_IPOD_MODEL_NANO_YELLOW:    iPod Nano (Yellow)
- * @ITDB_IPOD_MODEL_NANO_PURPLE:    iPod Nano (Purple)
- * @ITDB_IPOD_MODEL_NANO_ORANGE:    iPod Nano (Orange)
- * @ITDB_IPOD_MODEL_IPHONE_1:       iPhone
- * @ITDB_IPOD_MODEL_SHUFFLE_SILVER: iPod Shuffle (Silver)
- * @ITDB_IPOD_MODEL_SHUFFLE_BLACK:  iPod Shuffle (Black)
- * @ITDB_IPOD_MODEL_SHUFFLE_PINK:   iPod Shuffle (Pink)
- * @ITDB_IPOD_MODEL_SHUFFLE_BLUE:   iPod Shuffle (Blue)
- * @ITDB_IPOD_MODEL_SHUFFLE_GREEN:  iPod Shuffle (Green)
- * @ITDB_IPOD_MODEL_SHUFFLE_ORANGE: iPod Shuffle (Orange)
- * @ITDB_IPOD_MODEL_SHUFFLE_PURPLE: iPod Shuffle (Purple)
- * @ITDB_IPOD_MODEL_SHUFFLE_RED:    iPod Shuffle (Red)
- * @ITDB_IPOD_MODEL_CLASSIC_SILVER: iPod Classic (Silver)
- * @ITDB_IPOD_MODEL_CLASSIC_BLACK:  iPod Classic (Black)
- * @ITDB_IPOD_MODEL_TOUCH_SILVER:   iPod Touch (Silver)
- * @ITDB_IPOD_MODEL_IPHONE_WHITE:   iPhone (White)
- * @ITDB_IPOD_MODEL_IPHONE_BLACK:   iPhone (Black)
+ * @ITDB_IPOD_MODEL_INVALID:            Invalid model
+ * @ITDB_IPOD_MODEL_UNKNOWN:            Unknown model
+ * @ITDB_IPOD_MODEL_COLOR:              Color iPod
+ * @ITDB_IPOD_MODEL_COLOR_U2:           Color iPod (U2)
+ * @ITDB_IPOD_MODEL_REGULAR:            Regular iPod
+ * @ITDB_IPOD_MODEL_REGULAR_U2:         Regular iPod (U2)
+ * @ITDB_IPOD_MODEL_MINI:               iPod Mini
+ * @ITDB_IPOD_MODEL_MINI_BLUE:          iPod Mini (Blue)
+ * @ITDB_IPOD_MODEL_MINI_PINK:          iPod Mini (Pink)
+ * @ITDB_IPOD_MODEL_MINI_GREEN:         iPod Mini (Green)
+ * @ITDB_IPOD_MODEL_MINI_GOLD:          iPod Mini (Gold)
+ * @ITDB_IPOD_MODEL_SHUFFLE:            iPod Shuffle
+ * @ITDB_IPOD_MODEL_NANO_WHITE:         iPod Nano (White)
+ * @ITDB_IPOD_MODEL_NANO_BLACK:         iPod Nano (Black)
+ * @ITDB_IPOD_MODEL_VIDEO_WHITE:        iPod Video (White)
+ * @ITDB_IPOD_MODEL_VIDEO_BLACK:        iPod Video (Black)
+ * @ITDB_IPOD_MODEL_MOBILE_1:           Mobile iPod
+ * @ITDB_IPOD_MODEL_VIDEO_U2:           iPod Video (U2)
+ * @ITDB_IPOD_MODEL_NANO_SILVER:        iPod Nano (Silver)
+ * @ITDB_IPOD_MODEL_NANO_BLUE:          iPod Nano (Blue)
+ * @ITDB_IPOD_MODEL_NANO_GREEN:         iPod Nano (Green)
+ * @ITDB_IPOD_MODEL_NANO_PINK:          iPod Nano (Pink)
+ * @ITDB_IPOD_MODEL_NANO_RED:           iPod Nano (Red)
+ * @ITDB_IPOD_MODEL_NANO_YELLOW:        iPod Nano (Yellow)
+ * @ITDB_IPOD_MODEL_NANO_PURPLE:        iPod Nano (Purple)
+ * @ITDB_IPOD_MODEL_NANO_ORANGE:        iPod Nano (Orange)
+ * @ITDB_IPOD_MODEL_IPHONE_1:           iPhone
+ * @ITDB_IPOD_MODEL_SHUFFLE_SILVER:     iPod Shuffle (Silver)
+ * @ITDB_IPOD_MODEL_SHUFFLE_BLACK:      iPod Shuffle (Black)
+ * @ITDB_IPOD_MODEL_SHUFFLE_PINK:       iPod Shuffle (Pink)
+ * @ITDB_IPOD_MODEL_SHUFFLE_BLUE:       iPod Shuffle (Blue)
+ * @ITDB_IPOD_MODEL_SHUFFLE_GREEN:      iPod Shuffle (Green)
+ * @ITDB_IPOD_MODEL_SHUFFLE_ORANGE:     iPod Shuffle (Orange)
+ * @ITDB_IPOD_MODEL_SHUFFLE_PURPLE:     iPod Shuffle (Purple)
+ * @ITDB_IPOD_MODEL_SHUFFLE_RED:        iPod Shuffle (Red)
+ * @ITDB_IPOD_MODEL_CLASSIC_SILVER:     iPod Classic (Silver)
+ * @ITDB_IPOD_MODEL_CLASSIC_BLACK:      iPod Classic (Black)
+ * @ITDB_IPOD_MODEL_TOUCH_SILVER:       iPod Touch (Silver)
+ * @ITDB_IPOD_MODEL_IPHONE_WHITE:       iPhone (White)
+ * @ITDB_IPOD_MODEL_IPHONE_BLACK:       iPhone (Black)
+ * @ITDB_IPOD_MODEL_SHUFFLE_GOLD:       iPod Shuffle (Gold)
+ * @ITDB_IPOD_MODEL_SHUFFLE_STAINLESS:  iPod Shuffle (Stainless)
+ * @ITDB_IPOD_MODEL_IPAD:               iPad
+ * @ITDB_IPOD_MODEL_SHUFFLE_YELLOW:     iPod Shuffle (Yellow)
+ * @ITDB_IPOD_MODEL_SHUFFLE_SPACE_GRAY: iPod Shuffle (Space Gray)
+ * @ITDB_IPOD_MODEL_SHUFFLE_SLATE:      iPod Shuffle (Slate)
  *
  * iPod model information
  *
@@ -259,7 +265,10 @@ typedef enum {
     ITDB_IPOD_MODEL_IPHONE_BLACK,
     ITDB_IPOD_MODEL_SHUFFLE_GOLD,
     ITDB_IPOD_MODEL_SHUFFLE_STAINLESS,
-    ITDB_IPOD_MODEL_IPAD
+    ITDB_IPOD_MODEL_IPAD,
+    ITDB_IPOD_MODEL_SHUFFLE_YELLOW,
+    ITDB_IPOD_MODEL_SHUFFLE_SPACE_GRAY,
+    ITDB_IPOD_MODEL_SHUFFLE_SLATE,
 } Itdb_IpodModel;
 
 /**

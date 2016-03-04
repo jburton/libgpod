@@ -301,6 +301,12 @@ get_color_name (const Itdb_IpodInfo *info)
 		return g_strdup ("yellow");
 	case ITDB_IPOD_MODEL_SHUFFLE_STAINLESS:
 		return g_strdup ("stainless");
+    case ITDB_IPOD_MODEL_SHUFFLE_YELLOW:
+        return g_strdup ("yellow");
+    case ITDB_IPOD_MODEL_SHUFFLE_SPACE_GRAY:
+        return g_strdup ("spacegray");
+    case ITDB_IPOD_MODEL_SHUFFLE_SLATE:
+        return g_strdup ("slate");
 	}
 
 	g_assert_not_reached ();
@@ -362,6 +368,14 @@ get_icon_name (const Itdb_IpodInfo *info)
 			return g_strconcat (prefix, "ipod-shuffle-clip-pink", NULL);
 		case ITDB_IPOD_MODEL_SHUFFLE_BLUE:
 			return g_strconcat (prefix, "ipod-shuffle-clip-blue", NULL);
+        case ITDB_IPOD_MODEL_SHUFFLE_SPACE_GRAY:
+            return g_strconcat (prefix, "ipod-shuffle-clip-space-gray", NULL);
+        case ITDB_IPOD_MODEL_SHUFFLE_YELLOW:
+            return g_strconcat (prefix, "ipod-shuffle-clip-yellow", NULL);
+        case ITDB_IPOD_MODEL_SHUFFLE_SLATE:
+            return g_strconcat (prefix, "ipod-shuffle-clip-slate", NULL);
+        case ITDB_IPOD_MODEL_SHUFFLE_RED:
+            return g_strconcat (prefix, "ipod-shuffle-clip-red", NULL);
 		default:
 			g_assert_not_reached ();
 		}

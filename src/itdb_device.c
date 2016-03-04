@@ -159,6 +159,25 @@ static const Itdb_IpodInfo ipod_info_table [] = {
     {"C750", 2,  ITDB_IPOD_MODEL_SHUFFLE_GREEN,     ITDB_IPOD_GENERATION_SHUFFLE_4, 3},
     {"C751", 2,  ITDB_IPOD_MODEL_SHUFFLE_BLUE,      ITDB_IPOD_GENERATION_SHUFFLE_4, 3},
 
+    /* Shuffle / Fourth Generation (2012) */
+    {"E949", 2,  ITDB_IPOD_MODEL_SHUFFLE_SPACE_GRAY,    ITDB_IPOD_GENERATION_SHUFFLE_4, 3},
+    {"D773", 2,  ITDB_IPOD_MODEL_SHUFFLE_PINK,          ITDB_IPOD_GENERATION_SHUFFLE_4, 3},
+    {"D774", 2,  ITDB_IPOD_MODEL_SHUFFLE_YELLOW,        ITDB_IPOD_GENERATION_SHUFFLE_4, 3},
+    {"D777", 2,  ITDB_IPOD_MODEL_SHUFFLE_PURPLE,        ITDB_IPOD_GENERATION_SHUFFLE_4, 3},
+    {"D776", 2,  ITDB_IPOD_MODEL_SHUFFLE_GREEN,         ITDB_IPOD_GENERATION_SHUFFLE_4, 3},
+    {"D775", 2,  ITDB_IPOD_MODEL_SHUFFLE_BLUE,          ITDB_IPOD_GENERATION_SHUFFLE_4, 3},
+    {"D778", 2,  ITDB_IPOD_MODEL_SHUFFLE_SILVER,        ITDB_IPOD_GENERATION_SHUFFLE_4, 3},
+    {"D779", 2,  ITDB_IPOD_MODEL_SHUFFLE_SLATE,         ITDB_IPOD_GENERATION_SHUFFLE_4, 3},
+    {"D780", 2,  ITDB_IPOD_MODEL_SHUFFLE_RED,           ITDB_IPOD_GENERATION_SHUFFLE_4, 3},
+    
+    /* Shuffle / Fourth Generation (2015) */
+    {"KMJ2", 2,  ITDB_IPOD_MODEL_SHUFFLE_SPACE_GRAY,    ITDB_IPOD_GENERATION_SHUFFLE_4, 3},
+    {"KMG2", 2,  ITDB_IPOD_MODEL_SHUFFLE_SILVER,        ITDB_IPOD_GENERATION_SHUFFLE_4, 3},
+    {"KM92", 2,  ITDB_IPOD_MODEL_SHUFFLE_GOLD,          ITDB_IPOD_GENERATION_SHUFFLE_4, 3},
+    {"KM72", 2,  ITDB_IPOD_MODEL_SHUFFLE_PINK,          ITDB_IPOD_GENERATION_SHUFFLE_4, 3},
+    {"KME2", 2,  ITDB_IPOD_MODEL_SHUFFLE_BLUE,          ITDB_IPOD_GENERATION_SHUFFLE_4, 3},
+    {"KML2", 2,  ITDB_IPOD_MODEL_SHUFFLE_RED,           ITDB_IPOD_GENERATION_SHUFFLE_4, 3},
+
     /* Nano / Fifth Generation (first nano generation) */
     /* Buttons are integrated into the "touch wheel". */
     {"A350",  1, ITDB_IPOD_MODEL_NANO_WHITE,  ITDB_IPOD_GENERATION_NANO_1,   3},
@@ -397,6 +416,9 @@ static const gchar *ipod_model_name_table [] = {
 	N_("Shuffle (Gold)"),
 	N_("Shuffle (Stainless)"),
 	N_("iPad"),
+    N_("Shuffle (Yellow)"),
+    N_("Shuffle (Space Gray)"),
+    N_("Shuffle (Slate)"),
 	NULL
 };
 
@@ -857,6 +879,23 @@ static const ItdbSerialToModel serial_to_model_mapping[] = {
     { "FDM", "C749" }, /* 2GB Orange Shuffle 4g */
     { "FDN", "C750" }, /* 2GB Green Shuffle 4g */
     { "FDP", "C751" }, /* 2GB Blue Shuffle 4g */
+
+    { "4RT", "D773" }, /* 2GB Pink Shuffle 4g (2012) */
+    { "4RV", "D774" }, /* 2GB Yellow Shuffle 4g (2012) */
+    { "4RW", "D775" }, /* 2GB Blue Shuffle 4g (2012) */
+    { "4RY", "D776" }, /* 2GB Green Shuffle 4g (2012) */
+    { "4T0", "D777" }, /* 2GB Purple Shuffle 4g (2012) */
+    { "4T1", "D778" }, /* 2GB Silver Shuffle 4g (2012) */
+    { "4VF", "D779" }, /* 2GB Slate Shuffle 4g (2012) */
+    { "4VG", "D780" }, /* 2GB Red Shuffle 4g (2012) */
+    { "JDH", "E949" }, /* 2GB Space Gray Shuffle 4g (2012) */
+
+    { "K6C", "KMG2" }, /* 2GB Silver Shuffle 4g (2015) */
+    { "K68", "KM92" }, /* 2GB Gold Shuffle 4g (2015) */
+    { "K6D", "KMJ2" }, /* 2GB Space Gray Shuffle 4g (2015) */
+    { "K6F", "KML2" }, /* 2GB Red Shuffle 4g (2015) */
+    { "K67", "KM72" }, /* 2GB Pink Shuffle 4g (2015) */
+    { "K69", "KME2" }, /* 2GB Blue Shuffle 4g (2015) */
 
     { "W4N", "A623" }, /* 8GB Silver iPod Touch (1st gen) */
     { "W4T", "A627" }, /* 16GB Silver iPod Touch (1st gen) */
