@@ -6548,6 +6548,10 @@ static guint convert_filetype (gchar *filetype)
 	gchar *mp4_desc[] = {"AAC", "MP4", "M4A", "aac", "mp4", "m4a", NULL};
 	/* Type 0x04 */
 	gchar *wav_desc[] = {"WAV", "wav", NULL};
+    /* Type 0x05 */
+    gchar *alac_desc[] = {"Apple Lossless", "ALAC", NULL};
+    /* Type 0x06 */
+    gchar *aif_desc[] = {"AIFF", "aiff", NULL};
 
 	/* Default to mp3 */
 	stype=0x01;
@@ -6556,8 +6560,28 @@ static guint convert_filetype (gchar *filetype)
 		stype=0x02;
 	else if (haystack (filetype, wav_desc))
 		stype=0x04;
+    else if (haystack (filetype, alac_desc))
+        stype=0x05;
+    else if (haystack (filetype, aif_desc))
+        stype=0x06;
 
 	return stype;
+}
+
+static guint convert_filetype_marker (guint32 filetype)
+{
+    guint32 stype = 0x01;
+    
+    if (filetype == 'MP3 ')
+        stype = 0x01;
+    else if (filetype == 'M4A ' || filetype == 'MP4 ' || filetype == 'M4B ')
+        stype = 0x02;
+    else if (filetype == 'WAV ')
+        stype = 0x04;
+    else if (filetype == 'AIF ')
+        stype = 0x06;
+    
+    return stype;
 }
 
 /* Write out the rths header, the iTunesSD track header */
@@ -6582,8 +6606,15 @@ static gboolean write_rths (WContents *cts, Itdb_Track *track)
 	put32lint (cts, track->starttime); /* Start pos in ms */
 	put32lint (cts, track->stoptime); /* Stop pos in ms */
 	put32lint (cts, track->volume); /* Volume gain */
-	put32lint (cts, convert_filetype (track->filetype)); /* Filetype see 
-								convert filetype*/
+    
+    /* Filetype */
+    if (track->filetype)
+        put32lint (cts, convert_filetype (track->filetype));
+    else {
+        /* make a best guess using the filetype_marker */
+        put32lint (cts, convert_filetype_marker (track->filetype_marker));
+    }
+    
 	/* If the length of this field changes make sure to correct the
 	   g_strndup above */
 	put_string (cts, path); /* Path to the song */
