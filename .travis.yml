@@ -11,13 +11,10 @@ addons:
     - pkg-config
     - libxslt1-dev
     - intltool
-    - libplist-dev
     - gettext
-    - swig2.0
-    - python2.4-dev
+    - python2-dev
     - python-mutagen
     - python-setuptools
-    - python-plist
     - libsqlite3-dev
     - libglib2.0-dev
     - libxml2-dev
