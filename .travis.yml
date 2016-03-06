@@ -1,0 +1,40 @@
+addons:
+  apt:
+    packages:
+    - doxygen
+    - graphviz
+    - autoconf
+    - automake
+    - libtool
+    - m4
+    - gtk-doc-tools
+    - pkg-config
+    - libxslt1-dev
+    - intltool
+    - libplist-dev
+    - gettext
+    - swig2.0
+    - python2.4-dev
+    - python-mutagen
+    - python-setuptools
+    - python-plist
+    - libsqlite3-dev
+    - libglib2.0-dev
+    - libxml2-dev
+    - libimobiledevice-dev
+    - libgdk-pixbuf2.0-dev
+
+language: c
+
+python:
+    - "2.7"
+
+script: ./autogen.sh && make && make check
+
+install: true
+
+sudo: false
+
+notifications:
+  irc: "chat.freenode.net#code-hell"
+

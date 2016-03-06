@@ -1,0 +1,26 @@
+engines:
+  fixme:
+    enabled: true
+  pep8:
+    enabled: true
+  radon:
+    enabled: true
+  gnu-complexity:
+    enabled: true
+    config:
+      threshold: 15
+
+ratings:
+  paths:
+  - src/**
+  - bindings/python/**
+  - "**.c"
+  - "**.h"
+  - "**.py"
+
+exclude_paths:
+- tests/**/*
+- docs/**/*
+- po/**/*
+- m4/**/*
+
