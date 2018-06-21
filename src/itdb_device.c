@@ -116,7 +116,8 @@ static const Itdb_IpodInfo ipod_info_table [] = {
     {"9725", 1,  ITDB_IPOD_MODEL_SHUFFLE,     ITDB_IPOD_GENERATION_SHUFFLE_1, 3},
     /* Shuffle / Second Generation */
     /* Square, connected to computer via cable */
-    {"A546", 1,  ITDB_IPOD_MODEL_SHUFFLE_SILVER, ITDB_IPOD_GENERATION_SHUFFLE_2, 3},
+    {"A564", 1,  ITDB_IPOD_MODEL_SHUFFLE_SILVER, ITDB_IPOD_GENERATION_SHUFFLE_2, 3},
+	{"A565", 1,  ITDB_IPOD_MODEL_SHUFFLE_SILVER, ITDB_IPOD_GENERATION_SHUFFLE_2, 3},
     {"A947", 1,  ITDB_IPOD_MODEL_SHUFFLE_PINK,   ITDB_IPOD_GENERATION_SHUFFLE_2, 3},
     {"A949", 1,  ITDB_IPOD_MODEL_SHUFFLE_BLUE,   ITDB_IPOD_GENERATION_SHUFFLE_2, 3},
     {"A951", 1,  ITDB_IPOD_MODEL_SHUFFLE_GREEN,  ITDB_IPOD_GENERATION_SHUFFLE_2, 3},
@@ -712,8 +713,8 @@ static const ItdbSerialToModel serial_to_model_mapping[] = {
     { "RSA", "9725" },
     { "TSY", "9725" },
     { "C60", "9725" },
-    { "VTE", "A546" },
-    { "VTF", "A546" },
+    { "VTE", "A565" },
+    { "VTF", "A564" },
     { "XQ5", "A947" },
     { "XQS", "A947" },
     { "XQV", "A949" },
