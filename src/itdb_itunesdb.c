@@ -2280,6 +2280,11 @@ static glong get_playlist (FImport *fimp, guint mhsd_type, glong mhyp_seek)
 /*  plitem->libmhodcount = get16lint (cts, mhyp_seek+40);*/
   plitem->podcastflag = get16lint (cts, mhyp_seek+42);
   plitem->sortorder = get32lint (cts, mhyp_seek+44);
+  
+  if (header_len >= 0x53) {
+      plitem->sortdescending = get8int (cts, mhyp_seek+0x53);
+  }
+  
   if (header_len >= 0x6C) {
       plitem->priv->mhsd5_type = get16lint (cts, mhyp_seek+0x50);
   }
@@ -5554,7 +5559,10 @@ static gboolean write_playlist (FExport *fexp,
 
 
     } else {
-        put32_n0 (cts, 15);            /* ?                         */
+        put16_n0 (cts, 17);
+        put8int (cts, 0);
+        put8int (cts, pl->sortdescending);
+        put16_n0 (cts, 12);
     }
 
     mhod.valid = TRUE;

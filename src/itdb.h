@@ -1148,6 +1148,7 @@ struct _Itdb_Playlist
     time_t timestamp;
     guint64 id;
     guint32 sortorder;
+	guint8 sortdescending;
     guint32 podcastflag;
     Itdb_SPLPref splpref;
     Itdb_SPLRules splrules;
