@@ -346,6 +346,7 @@ static const Itdb_IpodInfo ipod_info_table [] = {
     {"B048",  16, ITDB_IPOD_MODEL_IPHONE_BLACK,   ITDB_IPOD_GENERATION_IPHONE_2, 50},
     {"B496",  16, ITDB_IPOD_MODEL_IPHONE_BLACK,   ITDB_IPOD_GENERATION_IPHONE_2, 50},
     /* iPhone 3GS */
+    {"C640",   8, ITDB_IPOD_MODEL_IPHONE_BLACK,   ITDB_IPOD_GENERATION_IPHONE_3, 50},
     {"C131",  16, ITDB_IPOD_MODEL_IPHONE_BLACK,   ITDB_IPOD_GENERATION_IPHONE_3, 50},
     {"C133",  32, ITDB_IPOD_MODEL_IPHONE_BLACK,   ITDB_IPOD_GENERATION_IPHONE_3, 50},
     {"C134",  32, ITDB_IPOD_MODEL_IPHONE_WHITE,   ITDB_IPOD_GENERATION_IPHONE_3, 50},
@@ -903,6 +904,7 @@ static const ItdbSerialToModel serial_to_model_mapping[] = {
     { "0JW", "B376" }, /* 32GB Silver iPod Touch (1st gen) */
     { "201", "B528" }, /* 8GB Silver iPod Touch (2nd gen) */
     { "203", "B531" }, /* 16GB Silver iPod Touch (2nd gen) */
+    { "208", "B533" }, /* 32GB Silver iPod Touch (2nd gen) */
     { "75J", "C086" }, /* 8GB iPod Touch (3rd gen) */
     { "6K2", "C008" }, /* 32GB iPod Touch (3rd gen) */
     { "6K4", "C011" }, /* 64GB iPod Touch (3rd gen) */
@@ -915,6 +917,7 @@ static const ItdbSerialToModel serial_to_model_mapping[] = {
     { "0KH", "B384" }, /* 16GB Silver iPhone */
     { "Y7H", "B046" }, /* 8GB Black iPhone 3G */
     { "Y7K", "B496" }, /* 16GB Black iPhone 3G */
+    { "EDG", "C640" }, /*  8GB Black iPhone 3GS */
     { "3NP", "C131" }, /* 16GB Black iPhone 3GS */
     { "3NR", "C133" }, /* 32GB Black iPhone 3GS */
     { "3NS", "C134" }, /* 32GB White iPhone 3GS */
